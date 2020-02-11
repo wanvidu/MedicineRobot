@@ -8,9 +8,14 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
+import com.firebase.client.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class StartActivity extends AppCompatActivity {
 
     Button btnSignUp, btnSignin;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +23,16 @@ public class StartActivity extends AppCompatActivity {
         // Hide Title bar
         this.getSupportActionBar().hide();
         setContentView(R.layout.activity_start);
+
+        mAuth= FirebaseAuth.getInstance();
+        FirebaseUser currentUser=mAuth.getCurrentUser();
+
+        // If your already logged in direct him to main screen.
+        if (currentUser!=null){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         btnSignUp = findViewById(R.id.btnSignUp);
         btnSignin = findViewById(R.id.btnSignin);

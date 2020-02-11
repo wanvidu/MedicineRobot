@@ -62,6 +62,8 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(SignUpActivity.this,"SignUp Unsuccessful, Please Try Again",Toast.LENGTH_SHORT).show();
                             }
                             else {
+                                Toast.makeText(SignUpActivity.this,"SignUp Successfully.",Toast.LENGTH_SHORT).show();
+
                                 startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                             }
                         }
@@ -85,5 +87,6 @@ public class SignUpActivity extends AppCompatActivity {
     public void openActivity2() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        finish();
     }
 }
