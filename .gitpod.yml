@@ -23,7 +23,7 @@ tasks:
   - command: echo "Hello"
 ports:
   - port: 6080
-    onOpen: browser
+    onOpen: open-browser
 vscode:
   extensions:
     - adelphes.android-dev-ext@0.8.0:z3IVaDRzKS8IeFWrhyaPAA==
